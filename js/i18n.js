@@ -550,7 +550,8 @@ function aplicarTraduccionesPagina(idioma, paginaActual) {
     if (sec1) {
       sec1.querySelector('h2').textContent = datos.h2;
       sec1.querySelector(':scope > p').textContent = datos.p;
-      sec1.querySelector('label span').textContent = datos.label;
+      const textoBuscar = sec1.querySelector('form span');
+if    (textoBuscar) textoBuscar.textContent = datos.label;
       sec1.querySelector('input[type="search"]').setAttribute('placeholder', datos.placeholder);
       sec1.querySelector('button').textContent = datos.btn;
     }
