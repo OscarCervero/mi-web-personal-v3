@@ -1,0 +1,14 @@
+Se han usado las siguientes tecnologías para este proyecto:
+
+HTML y CSS para hacer la página WEB, siguiendo sus estándares y pasando los validadores.
+No he utilizado ningún framework ya que no lo vi necesario para la realización de este ejercicio.
+
+También he usado JavaScript para crear dos scripts:
+ 1.Uno que me añade el header y el footer automáticamente en cada página HTML para no tener que repetir códifo.
+ 2.Otro que sirve para el carrusel de imágenes de la página de aficiones, tanto para los álbumes de música como para las películas. En este carrusel, al pulsar las flechas se irán enseñando y desapareciendo nuevas imágenes.
+
+ Cabe destacar que no se ha usado ningún momento el uso de class, id ni de bloques div.
+ En el base.css se encuentran definidas variables que se usan en el resto de CSS. Estas variables, que se usan para no tener que repetir colores en todas las CSS, producen advertencias en el validador.
+ También he dejado algunas advertencias del validador de CSS que tienen que ver con redimensiones y advertencias que me dicen que no tengo colores establecidos porque el validador no tiene en cuenta que lo heredan de las variables definidas en el base.css.
+
+ Por último, añadir que en el contacto.html, cuando se le pasa el validador de lighthouse, las best practices baja a un valor de más o menos 77, debido al uso de mailto: pero al no parecerme una bajada significativa he decidido dejarlo así.

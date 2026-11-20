@@ -1,0 +1,508 @@
+/* ==========================================================================
+   VARIABLES GLOBALES Y RESET
+   ========================================================================== */
+:root {
+  --color-fondo: #f1f5f9;
+  --color-superficie: #ffffff;
+  --color-texto: #0f172a;
+  --color-texto-suave: #475569;
+  --color-primario: #0369a1;
+  --color-primario-hover: #075985;
+  --color-primario-fondo: #e0f2fe;
+  --color-borde: #cbd5e1;
+  
+  --fuente-sistema: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ancho-maximo: 68rem;     
+  --radio-borde: 0.75rem;    
+  --sombra-tarjeta: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-sistema);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   CABECERA Y NAVEGACIÓN GLOBAL
+   ========================================================================== */
+body > header {
+  color: inherit;
+  background-color: var(--color-superficie);
+  border-bottom: 0.0625rem solid var(--color-borde);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.03);
+}
+
+body > header > nav {
+  max-width: var(--ancho-maximo);
+  margin-inline: auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+body > header > nav > a:first-of-type {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primario);
+  background-color: transparent;
+  text-decoration: none;
+  letter-spacing: -0.02rem;
+}
+
+body > header ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+body > header ul a {
+  text-decoration: none;
+  color: var(--color-texto);
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: calc(var(--radio-borde) * 0.5);
+  transition: all 0.2s ease;
+}
+
+body > header ul a:hover {
+  background-color: var(--color-primario-fondo);
+  color: var(--color-primario);
+}
+
+body > header ul a[aria-current="page"] {
+  background-color: var(--color-primario);
+  color: #ffffff;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 0.15rem solid var(--color-primario);
+  outline-offset: 0.125rem;
+}
+
+/* ==========================================================================
+   CONTENEDOR MAIN Y ELEMENTOS GENERALES
+   ========================================================================== */
+main {
+  max-width: var(--ancho-maximo);
+  width: 100%;
+  margin-inline: auto;
+  padding: 2rem 1.5rem;
+  flex: 1;
+}
+
+main > h1 {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: var(--color-texto);
+  background-color: transparent;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03rem;
+}
+
+main > section,
+main > article {
+  color: inherit;
+  background-color: var(--color-superficie);
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-texto);
+  background-color: transparent;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+p {
+  margin-bottom: 0.85rem;
+}
+
+main a {
+  color: var(--color-primario);
+  background-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+}
+
+main a:hover {
+  color: var(--color-primario-hover);
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  background-color: var(--color-superficie);
+  border-top: 0.0625rem solid var(--color-borde);
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  font-size: 0.875rem;
+  color: var(--color-texto-suave);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   MIGAS DE PAN (BREADCRUMBS)
+   ========================================================================== */
+main > nav {
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+main > nav ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+main > nav li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-texto-suave);
+}
+
+main > nav li:not(:last-child)::after {
+  content: "/";
+  color: var(--color-texto-suave);
+  font-weight: 400;
+}
+
+main > nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+main > nav a:hover {
+  text-decoration: underline;
+}
+
+main > nav li:last-child a {
+  color: var(--color-texto);
+  font-weight: 400;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   ESTILOS DEL MAPA DEL SITIO Y NAVEGACIÓN DEL FOOTER
+   ========================================================================== */
+main > section > ul {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+main > section > ul ul {
+  margin-left: 1.5rem;
+  margin-top: 0.65rem;
+}
+
+main > section > ul li {
+  margin-bottom: 0.65rem;
+}
+
+footer > nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+footer > nav a {
+  color: var(--color-primario);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+footer > nav a:hover {
+  color: var(--color-primario-hover);
+}
+
+footer > nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+footer > nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-primario);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+footer > nav a:hover {
+  color: var(--color-primario-hover);
+}
+
+footer > nav svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   AYUDA Y DESPLEGABLES (DETAILS / SUMMARY)
+   ========================================================================== */
+main > section > details {
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.6);
+  background-color: var(--color-fondo);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 0.85rem;
+}
+
+main > section > details:last-of-type {
+  margin-bottom: 0;
+}
+
+main > section > details > summary {
+  font-weight: 700;
+  color: var(--color-texto);
+  cursor: pointer;
+  list-style-position: outside;
+  margin-left: 1rem;
+}
+
+main > section > details > summary:hover {
+  color: var(--color-primario);
+}
+
+main > section > details > p {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   BARRA DE BÚSQUEDA EN CABECERA
+   ========================================================================== */
+body > header search form {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+body > header search label {
+  display: inline-flex;
+  align-items: center;
+}
+
+body > header search label > span {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body > header search input {
+  width: 11rem;
+  padding: 0.4rem 0.7rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.5);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+body > header search input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  background-color: var(--color-superficie);
+}
+
+body > header search button {
+  padding: 0.42rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-primario);
+  border: none;
+  border-radius: calc(var(--radio-borde) * 0.5);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+body > header search button:hover {
+  background-color: var(--color-primario-hover);
+}
+
+/* ==========================================================================
+   PÁGINA DE RESULTADOS DE BÚSQUEDA (buscar.html)
+   ========================================================================== */
+main > section > search form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+main > section > search label {
+  flex: 1 1 16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+main > section > search input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.5);
+}
+
+main > section > search button {
+  padding: 0.7rem 1.4rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--color-primario);
+  border: none;
+  border-radius: calc(var(--radio-borde) * 0.5);
+  cursor: pointer;
+}
+
+main > section > search button:hover {
+  background-color: var(--color-primario-hover);
+}
+
+main > section > output {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-primario);
+}
+
+main > section:has(> article > h3 > a) > article {
+  background-color: var(--color-fondo);
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.75);
+  padding: 1.15rem;
+  margin-top: 1rem;
+}
+
+main > section:has(> article > h3 > a) > article > p:first-of-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  margin-bottom: 0.45rem;
+}
+
+main > section:has(> article > h3 > a) > article > p:last-of-type {
+  margin-bottom: 0;
+}
+
+main mark {
+  background-color: var(--color-primario-fondo);
+  color: var(--color-texto);
+  padding: 0 0.2rem;
+  border-radius: 0.2rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SELECTOR DE IDIOMA EN CABECERA
+   ========================================================================== */
+body > header > nav > label {
+  display: inline-flex;
+  align-items: center;
+}
+
+body > header > nav > label > span {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body > header > nav select {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.5);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+body > header > nav select:hover {
+  border-color: var(--color-primario);
+  background-color: var(--color-primario-fondo);
+}
+
+
+/* Mejora UX Móvil: liberar espacio vertical al hacer scroll */
+@media (max-width: 48rem) {
+  body > header {
+    position: static;
+  }
+
+  body > header > nav {
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+  }
+}

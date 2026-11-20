@@ -1,0 +1,180 @@
+form {
+  max-width: 38rem;
+  margin-top: 1.25rem;
+}
+
+form p {
+  margin-bottom: 1.25rem;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 0.95rem;
+  gap: 0.4rem;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.5);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 0.2rem rgba(2, 132, 199, 0.25);
+  background-color: var(--color-superficie);
+}
+
+button[type="submit"] {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: calc(var(--radio-borde) * 0.5);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-primario-hover);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+main > section > ul {
+  list-style: none;
+  margin-left: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+main > section > ul a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.5);
+  background-color: var(--color-fondo);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+main > section > ul a:hover {
+  background-color: var(--color-primario-fondo);
+  border-color: var(--color-primario);
+}
+
+main > section > ul svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   REFERENCIAS Y AVALES
+   ========================================================================== */
+main > section:has(> article) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+main > section:has(> article) > h2,
+main > section:has(> article) > p {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+main > section:has(> article) > article {
+  background-color: var(--color-fondo);
+  border: 0.0625rem solid var(--color-borde);
+  border-radius: calc(var(--radio-borde) * 0.75);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+main > section:has(> article) > article > h3 {
+  color: var(--color-texto);
+  margin-bottom: 0;
+}
+
+main > section:has(> article) > article > p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primario);
+  margin-bottom: 0;
+}
+
+main > section:has(> article) blockquote {
+  border-left: 0.2rem solid var(--color-primario);
+  padding-left: 0.85rem;
+  color: var(--color-texto-suave);
+  font-size: 0.925rem;
+}
+
+main > section:has(> article) blockquote p {
+  margin-bottom: 0;
+}
+
+main > section:has(> article) address {
+  font-style: normal;
+  font-size: 0.9rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 0.0625rem solid var(--color-borde);
+}
+
+main > section:has(> article) address p {
+  margin-bottom: 0.35rem;
+}
+
+main > section:has(> article) address p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 44rem) {
+  main > section:has(> article) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   AYUDA CONTEXTUAL Y RETROALIMENTACIÓN DEL FORMULARIO
+   ========================================================================== */
+form small {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
+form output {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primario);
+  min-height: 1.4rem;
+}
